@@ -1,0 +1,87 @@
+set number
+set pastetoggle=<F2>
+set hlsearch
+" set foldindent=indent
+syntax on
+set tabstop=4
+set autoindent
+
+let mapleader=','
+inoremap <leader>w <Esc>:w<cr>
+noremap <leader>w :w<cr>
+
+" nnoremap <space> viw
+nnoremap <c-d> dd
+inoremap <c-d> <Esc>ddi
+	
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> [n :bnext<CR>
+
+inoremap jj <Esc>`^
+
+" use ctrl+h/j/k/l switch window
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+com! FormatJSON %!python3 -m json.tool
+
+call plug#begin('~/.vim/plugged')
+Plug 'mhinz/vim-startify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+" Plug 'w0ng/vim-hybrid'
+Plug 'sainnhe/everforest'
+Plug 'preservim/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'brooth/far.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+Plug 'sbdchd/neoformat'
+Plug 'tpope/vim-commentary'
+call plug#end()
+
+nnoremap <leader>v :NERDTreeFind<cr>
+nnoremap <leader>g :NERDTreeToggle<cr>
+
+" 关闭预览窗口
+" let g:deoplete#enable_at_startup = 1
+" set completeopt-=preview
+
+" 搜索文件
+let g:ctrlp_map = '<c-p>'
+" 快速搜索移动,屏幕内
+nmap ss <Plug>(easymotion-s2)
+
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+
+" For dark version.
+set background=dark
+
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+" let g:everforest_background = 'hard'
+
+" For better performance
+let g:everforest_better_performance = 1
+            
+" colorscheme hybrid 
+colorscheme everforest
+" colorscheme catppuccin_mocha
