@@ -33,7 +33,9 @@ vim.g.mapleader = ','
 vim.keymap.set('i', '<leader>w', '<Esc>:w<cr>', opts)
 vim.keymap.set('n', '<leader>w', ':w<cr>', opts)
 vim.keymap.set('i', 'jj', '<Esc>`^', opts)
-vim.keymap.set('n', '<leader>q', '<cmd>q<cr>')
+vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', opts)
+vim.keymap.set('n', '[b', ':bprevious<CR>', opts)
+vim.keymap.set('n', '[p', ':bnext<CR>', opts)
 
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
