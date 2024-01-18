@@ -78,7 +78,9 @@ local lualine = {
 local vim_airline = { 'vim-airline/vim-airline' }
 local vim_airline_theme = { 'vim-airline/vim-airline-themes' }
 local mason = { "williamboman/mason.nvim" }
+local vim_startify =  'mhinz/vim-startify'
 require("lazy").setup({
+	vim_startify,
     catppuccin,
 --    everforest,
 --    vim_airline,
